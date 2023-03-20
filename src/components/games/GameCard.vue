@@ -54,10 +54,10 @@ export default {
                 <!--TODO EDITOR -->
                 <!-- da router  il v-if qui è MOLTO importante -->
                 <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                            <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                {{ game.editor.label }}
-                                                            </span>
-                                                        </router-link> -->
+                                                                <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                    {{ game.editor.label }}
+                                                                </span>
+                                                            </router-link> -->
 
                 <!-- ABSTRACT | DESCRIPTION -->
                 <p class="card-text">
@@ -73,12 +73,12 @@ export default {
                     </span>
                     <!--TODO BUTTON TO DETAILS -->
                     <!-- <router-link v-if="!isDetail" :to="{ name: 'game-detail', params: { id: game.id } }"
-                                                                                            class="btn btn-primary">
-                                                                                            Show details
-                                                                    </router-link> -->
+                                                                                                class="btn btn-primary">
+                                                                                                Show details
+                                                                        </router-link> -->
                 </div>
             </div>
         </div>
 
     </div>
-</div></template>
+</template>
