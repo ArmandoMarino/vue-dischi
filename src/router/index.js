@@ -3,23 +3,22 @@ import { createRouter, createWebHistory } from "vue-router";
 
 // Importo le pagine che voglio usare
 
-// import HomePage from '../pages/HomePage.vue';
+import HomePage from "../pages/HomePage.vue";
 
 // import NotFoundPage from '../pages/NotFoundPage.vue';
 
 // Creo il Router e definisco le rotte
 const router = createRouter({
-    // History delle pagine
-    history: createWebHistory(),
-    // Importo la classe da avere in active
-    linkExactActiveClass: 'active',
-    linkActiveClass: 'active',
+  // History delle pagine
+  history: createWebHistory(),
+  // Importo la classe da avere in active
+  linkActiveClass: "active",
 
-    // Rotte che useremo
-    routes: [
-        // { path: '/', name: 'home', component: HomePage },
-        // { path: '/contact', name: 'contact', component: ContactPage },
-    ]
+  // Rotte che useremo
+  routes: [
+    { path: "/", name: "home", component: HomePage },
+    // { path: '/contact', name: 'contact', component: ContactPage },
+  ],
 });
 
-export { router }
+export { router };
