@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import HomePage from "../pages/HomePage.vue";
 
-// import NotFoundPage from '../pages/NotFoundPage.vue';
+import NotFoundPage from '../pages/NotFoundPage.vue';
 
 // Creo il Router e definisco le rotte
 const router = createRouter({
@@ -23,7 +23,7 @@ const router = createRouter({
 
         //Rotta per lo show del Project con ID
         // TODO { path: '/games/:id', name: 'project-detail', component: GameDetailPage },
-        
+
         { path: "/:pathMatch(.*)*", name: "not-found", component: NotFoundPage },
 
     ],
