@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-    <section id="games-list" class="my-4">
+    <section id="games-list" class="row my-4">
         <div v-if="games.length">
             <game-card v-for="project in games" :key="game.id" :game="game">
                 {{ game.title }}
