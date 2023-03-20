@@ -18,6 +18,7 @@ const router = createRouter({
   routes: [
     { path: "/", name: "home", component: HomePage },
     // { path: '/contact', name: 'contact', component: ContactPage },
+    { path: "/:pathMatch(.*)*", name: "not-found", component: NotFoundPage },
   ],
 });
 
