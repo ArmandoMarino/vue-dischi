@@ -21,8 +21,8 @@ const router = createRouter({
 
         // TODO { path: '/contact', name: 'contact', component: ContactPage },
 
-        //Rotta per lo show del Project con ID
-        // TODO { path: '/games/:id', name: 'project-detail', component: GameDetailPage },
+        //Rotta per lo show del game con ID
+        //  TODO { path: '/games/:id', name: 'game-detail', component: GameDetailPage },
 
         { path: "/:pathMatch(.*)*", name: "not-found", component: NotFoundPage },
 
