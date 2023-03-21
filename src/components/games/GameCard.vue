@@ -46,24 +46,28 @@ export default {
 
 <template>
     <div class="col-lg-3 my-4 text-center">
-        <div class="p-3 card h-100">
+        <div class="p-3 card h-100 ">
+            <!--* IMAGE -->
             <!--TODO <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">{{ game.title }}</h5>
 
                 <!--TODO EDITOR -->
                 <!-- da router  il v-if qui è MOLTO importante -->
                 <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                    {{ game.editor.label }}
-                                                                </span>
-                                                            </router-link> -->
+                                                                                                                                <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                    {{ game.editor.label }}
+                                                                                                                                </span>
+                                                                                                                            </router-link> -->
 
-                <!-- ABSTRACT | DESCRIPTION -->
+                <!--* ABSTRACT | DESCRIPTION -->
                 <p class="card-text">
                     {{ isDetail ? game.description : abstractDescription }}
                 </p>
-                <div class="card-footer d-flex justify-content-between align-items-center">
+
+
+                <!--* CARD FOOTER -->
+                <div class="card-footer">
                     <!-- UPDATED & PUBLISHED -->
                     <p>Pubblished at : {{ gameDateCreated }}</p>
                     <p>Updated at : {{ gameDateUpdated }}</p>
@@ -73,12 +77,20 @@ export default {
                     </span>
                     <!--TODO BUTTON TO DETAILS -->
                     <!-- <router-link v-if="!isDetail" :to="{ name: 'game-detail', params: { id: game.id } }"
-                                                                                                class="btn btn-primary">
-                                                                                                Show details
-                                                                        </router-link> -->
+                                                                                                                                                                class="btn btn-primary">
+                                                                                                                                                                Show details
+                                                                                                               </router-link> -->
                 </div>
             </div>
         </div>
 
     </div>
 </template>
+
+
+<style scoped lang="scss">
+.card-footer {
+    font-size: 12px;
+}
+</style>
+
