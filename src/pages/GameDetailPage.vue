@@ -29,6 +29,13 @@ export default {
 </script>
 
 <template>
-  <GameCard :game="game" :isDetail="true" />
+  <section class="game-detail">
+    <GameCard :game="game" :isDetail="true" />
+  </section>
 </template>
 
+<style scoped lang="scss">
+.game-detail {
+  margin-top: 100px;
+}
+</style>
