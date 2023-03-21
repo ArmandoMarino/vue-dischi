@@ -53,6 +53,7 @@ export default {
       class="p-3 card h-100"
       :class="isDetail ? 'my-card-detail' : 'my-card-list'"
     >
+      <!-- :style="{ backgroundImage: 'url(' + game.image + ')' }" -->
       <!--* IMAGE -->
       <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
       <div class="card-body d-flex flex-column justify-content-between">
@@ -127,7 +128,9 @@ body {
 }
 
 .card {
-  background: #191c29;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: var(--card-width);
   height: var(--card-height);
   padding: 3px;
