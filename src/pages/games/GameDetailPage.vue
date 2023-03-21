@@ -1,6 +1,6 @@
 <script>
 import axios from "axios";
-import GameCard from "../components/games/GameCard.vue";
+import GameCard from "../../components/games/GameCard.vue";
 const apiBaseUrl = "http://localhost:8000/api/";
 export default {
   name: "GameDetailPage",
