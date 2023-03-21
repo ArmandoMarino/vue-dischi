@@ -7,19 +7,11 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary p-0 mb-3">
     <div class="container-fluid">
-      <RouterLink class="navbar-brand d-flex align-items-center px-2" to="/"
-        ><i class="fa-solid fa-gamepad me-3" style="color: #ffffff"></i
-        >Videogames</RouterLink
-      >
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <RouterLink class="navbar-brand d-flex align-items-center px-2" to="/"><i
+          class="fa-solid fa-2x fa-gamepad me-3"></i>
+      </RouterLink>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -35,12 +27,12 @@ export default {
 
 <style scoped lang="scss">
 .navbar {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
   background: rgb(105, 50, 142);
-  background: linear-gradient(
-    327deg,
-    rgba(105, 50, 142, 1) 40%,
-    rgba(0, 0, 0, 1) 74%
-  );
+  background: linear-gradient(327deg,
+      rgba(105, 50, 142, 1) 40%,
+      rgba(0, 0, 0, 1) 74%);
   border: 1px solid;
   padding: 10px;
   box-shadow: 5px 1px 50px 10px #ffffff;
@@ -51,9 +43,7 @@ export default {
   left: 0;
   z-index: 2;
 }
-.fa-gamepad {
-  font-size: 40px;
-}
+
 li.nav-item,
 .navbar-brand {
   color: white;
