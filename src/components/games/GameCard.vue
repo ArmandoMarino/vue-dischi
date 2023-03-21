@@ -61,10 +61,10 @@ export default {
                         <!--TODO EDITOR -->
                         <!-- da router  il v-if qui è MOLTO importante -->
                         <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {{ game.editor.label }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </router-link> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {{ game.editor.label }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </router-link> -->
 
                         <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
                         <p class="card-text">
@@ -107,17 +107,6 @@ export default {
 :root {
     --card-height: 65vh;
     --card-width: calc(var(--card-height) / 1.5);
-}
-
-body {
-    min-height: 100vh;
-    background: #212534;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-sizing: border-box;
 }
 
 .card {
