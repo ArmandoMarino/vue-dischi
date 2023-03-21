@@ -48,17 +48,17 @@ export default {
     <div class="col-lg-3 my-4 text-center">
         <div class="p-3 card h-100 ">
             <!--* IMAGE -->
-            <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title">
+            <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
             <div class="card-body d-flex flex-column justify-content-between">
                 <h5 class="card-title">{{ game.title }}</h5>
 
                 <!--TODO EDITOR -->
                 <!-- da router  il v-if qui è MOLTO importante -->
                 <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                                                <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                                                    {{ game.editor.label }}
-                                                                                                                                                                </span>
-                                                                                                                                                            </router-link> -->
+                                                                                                                                                                        <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                                            {{ game.editor.label }}
+                                                                                                                                                                        </span>
+                                                                                                                                                                    </router-link> -->
 
                 <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
                 <p class="card-text">
@@ -76,10 +76,10 @@ export default {
                         {{ genre.label }}
                     </span>
                     <!--TODO BUTTON TO DETAILS inglobiamo tutto come overlay and hover per lo show -->
-                    <!-- <router-link v-if="!isDetail" :to="{ name: 'game-detail', params: { id: game.id } }"
-                                                                                                                                                                                                class="btn btn-primary">
-                                                                                                                                                                                                Show details
-                                                                                                                                               </router-link> -->
+                    <router-link v-if="!isDetail" :to="{ name: 'game-detail', params: { id: game.id } }"
+                        class="btn btn-primary">
+                        Show details
+                    </router-link>
                 </div>
             </div>
         </div>

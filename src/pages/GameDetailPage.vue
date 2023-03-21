@@ -14,7 +14,7 @@ export default {
       axios
         .get(endpoint)
         .then((res) => {
-          this.project = res.data;
+          this.game = res.data;
         })
         .catch(() => {
           this.$router.push({ name: "not-found" });
