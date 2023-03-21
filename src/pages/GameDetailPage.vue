@@ -6,7 +6,7 @@ export default {
   name: "GameDetailPage",
   components: { GameCard },
   data: () => ({
-    game: null,
+    game: {},
   }),
   methods: {
     getGame() {
