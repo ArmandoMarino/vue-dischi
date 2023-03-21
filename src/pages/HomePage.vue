@@ -31,7 +31,6 @@ export default {
 
         // In res.data arrivano i dati della chiamata da axios 
         this.games = res.data;
-        console.log(this.games, 'QUI');
       })
         // Controllo con catch se ci sono errori e nel caso l'alert sarà true (on)
         .catch((err) => {
