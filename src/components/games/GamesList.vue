@@ -9,6 +9,7 @@ export default {
 
 <template>
     <section id="games-list">
+        <h1>Videogames</h1>
         <div class="row g-3" v-if="games.length">
             <game-card v-for="game in games" :key="game.id" :game="game">
                 {{ game.title }}

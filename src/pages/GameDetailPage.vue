@@ -31,3 +31,4 @@ export default {
 <template>
   <GameCard :game="game" :isDetail="true" />
 </template>
+

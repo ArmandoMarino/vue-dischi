@@ -1,6 +1,7 @@
 <script>
 import axios from "axios";
 import GamesList from "../components/games/GamesList.vue";
+
 // Server PHP Laravel con /api !
 const apiBaseUrl = 'http://127.0.0.1:8000/api'
 export default {
@@ -11,7 +12,7 @@ export default {
     // AppPagination
   },
   data: () => ({
-    // isLoading: false,
+    isLoading: false,
     // isALertOpen: false,
     // Mettere tutto sotto la stessa chiave cosi con il Destructuring(sotto) prenderò gli elementi parlanti es : project.links
     games: [],
@@ -51,7 +52,8 @@ export default {
 
 <template>
   <div class="container">
-    <h1>Videogames</h1>
-    <games-list :games="games"></games-list>
+    <!-- <app-alert :is-open="isALertOpen" @close="isALertOpen = false"></app-alert> -->
+    <app-loader v-if="isLoading"></app-loader>
+    <games-list v-else :games="games"></games-list>
   </div>
 </template>
