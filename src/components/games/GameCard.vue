@@ -17,7 +17,7 @@ export default {
 
             // Fix zero bug
             if (day < 10) day = "0" + day;
-            if (month < 10) day = "0" + month;
+            if (month < 10) month = "0" + month;
 
             return `${day}/${month}/${year} - ${hours}:${minutes}:${seconds} `;
         },
@@ -32,7 +32,7 @@ export default {
 
             // Fix zero bug
             if (day < 10) day = "0" + day;
-            if (month < 10) day = "0" + month;
+            if (month < 10) month = "0" + month;
 
             return `${day}/${month}/${year} - ${hours}:${minutes}:${seconds} `;
         },
@@ -55,12 +55,12 @@ export default {
                 <!--TODO EDITOR -->
                 <!-- da router  il v-if qui è MOLTO importante -->
                 <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                    {{ game.editor.label }}
-                                                                                                                                </span>
-                                                                                                                            </router-link> -->
+                                                                                                                                            <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                {{ game.editor.label }}
+                                                                                                                                            </span>
+                                                                                                                                        </router-link> -->
 
-                <!--* ABSTRACT | DESCRIPTION -->
+                <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
                 <p class="card-text">
                     {{ isDetail ? game.description : abstractDescription }}
                 </p>
@@ -77,9 +77,9 @@ export default {
                     </span>
                     <!--TODO BUTTON TO DETAILS -->
                     <!-- <router-link v-if="!isDetail" :to="{ name: 'game-detail', params: { id: game.id } }"
-                                                                                                                                                                class="btn btn-primary">
-                                                                                                                                                                Show details
-                                                                                                               </router-link> -->
+                                                                                                                                                                            class="btn btn-primary">
+                                                                                                                                                                            Show details
+                                                                                                                           </router-link> -->
                 </div>
             </div>
         </div>
