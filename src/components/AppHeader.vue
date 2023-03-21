@@ -31,6 +31,13 @@ export default {
 </template>
 
 <style scoped lang="scss">
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
 li.nav-item,
 .navbar-brand {
   &:hover {
