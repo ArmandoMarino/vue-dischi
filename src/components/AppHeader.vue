@@ -7,7 +7,10 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary p-0 mb-3">
     <div class="container-fluid">
-      <RouterLink class="navbar-brand px-2" to="/">Videogames</RouterLink>
+      <RouterLink class="navbar-brand d-flex align-items-center px-2" to="/"
+        ><i class="fa-solid fa-gamepad me-3" style="color: #ffffff"></i
+        >Videogames</RouterLink
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -22,7 +25,7 @@ export default {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/">Home</RouterLink>
+            <RouterLink class="nav-link text-white" to="/">Home</RouterLink>
           </li>
         </ul>
       </div>
@@ -32,18 +35,27 @@ export default {
 
 <style scoped lang="scss">
 .navbar {
-  background-color: white;
+  background: rgb(105, 50, 142);
+  background: linear-gradient(
+    327deg,
+    rgba(105, 50, 142, 1) 40%,
+    rgba(0, 0, 0, 1) 74%
+  );
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 1px 50px 10px #ffffff;
+  height: 70px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 2;
 }
-
+.fa-gamepad {
+  font-size: 40px;
+}
 li.nav-item,
 .navbar-brand {
-  &:hover {
-    background-color: lightgray;
-  }
+  color: white;
 }
 </style>
