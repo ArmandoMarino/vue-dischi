@@ -50,9 +50,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <!-- <app-alert :is-open="isALertOpen" @close="isALertOpen = false"></app-alert> -->
-    <app-loader v-if="isLoading"></app-loader>
-    <games-list v-else :games="games"></games-list>
-  </div>
+  <!-- <app-alert :is-open="isALertOpen" @close="isALertOpen = false"></app-alert> -->
+  <app-loader v-if="isLoading"></app-loader>
+  <games-list v-else :games="games"></games-list>
 </template>
