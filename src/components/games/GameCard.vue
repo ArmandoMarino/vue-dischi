@@ -47,9 +47,12 @@ export default {
 <template>
   <div
     class="my-4 text-center"
-    :class="isDetail ? `col-12 my-card-detail` : `col-3`"
+    :class="isDetail ? 'col-11 mx-auto my-card-detail' : 'col-3'"
   >
-    <div class="p-3 card h-100" :class="isDetail ? `my-card-detail` : `p-3`">
+    <div
+      class="p-3 card h-100"
+      :class="isDetail ? 'my-card-detail' : 'my-card-list'"
+    >
       <!--* IMAGE -->
       <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
       <div class="card-body d-flex flex-column justify-content-between">
@@ -151,7 +154,7 @@ body {
   opacity: 0;
 }
 
-.card::before {
+.my-card-list::before {
   content: "";
   width: 104%;
   height: 102%;
@@ -169,7 +172,7 @@ body {
   animation: spin 2.5s linear infinite;
 }
 
-.card::after {
+.my-card-list::after {
   position: absolute;
   content: "";
   top: calc(var(--card-height) / 6);
@@ -193,9 +196,6 @@ body {
 }
 .my-card-detail {
   height: 90vh;
-  .my-card-detail::before {
-    background-image: #000000;
-  }
 }
 
 @keyframes spin {

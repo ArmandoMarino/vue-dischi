@@ -32,10 +32,12 @@ export default {
 
 <style scoped lang="scss">
 .navbar {
+  background-color: white;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  z-index: 2;
 }
 
 li.nav-item,
