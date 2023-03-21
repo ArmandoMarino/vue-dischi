@@ -48,23 +48,23 @@ export default {
     <div class="my-4 text-center" :class="isDetail ? 'col-11 mx-auto my-card-detail' : 'col-3'">
 
         <!-- ROUTER -->
-        <router-link v-if="!isDetail" :to="{ name: 'game-detail', params: { id: game.id } }">
+        <router-link :to="{ name: 'game-detail', params: { id: game.id } }">
 
             <div class="p-3 card h-100" :class="isDetail ? 'my-card-detail' : 'my-card-list'"
                 :style="{ backgroundImage: 'url(' + game.image + ')' }">
                 <div class=" h-100 overlay">
                     <!--* IMAGE -->
                     <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
-                    <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="card-body h-100 d-flex flex-column justify-content-between">
                         <h5 class="card-title">{{ game.title }}</h5>
 
                         <!--TODO EDITOR -->
                         <!-- da router  il v-if qui è MOLTO importante -->
                         <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {{ game.editor.label }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </router-link> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {{ game.editor.label }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </router-link> -->
 
                         <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
                         <p class="card-text">
@@ -72,16 +72,17 @@ export default {
                         </p>
 
                         <!--* CARD FOOTER -->
-                        <div v-if="isDetail" class="card-footer">
+                        <div v-if="isDetail">
                             <!-- UPDATED & PUBLISHED -->
                             <p>Pubblished at : {{ gameDateCreated }}</p>
                             <p>Updated at : {{ gameDateUpdated }}</p>
-                            <!-- GENRES -->
-
                         </div>
-                        <div class="d-flex fs-6 justify-content-between align-items-center">
+
+                        <!-- GENRES -->
+                        <p>Genres:</p>
+                        <div class="d-flex fs-6 justify-content-center align-items-center">
                             <span v-for="genre in game.genres" :style="{ backgroundColor: genre.color }" :key="genre.id"
-                                class="badge">
+                                class="badge ms-2">
                                 {{ genre.label }}
                             </span>
                         </div>
