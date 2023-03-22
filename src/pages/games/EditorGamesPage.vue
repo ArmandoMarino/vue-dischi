@@ -17,22 +17,16 @@ export default {
         isLoading: false,
         isALertOpen: false,
         // Mettere tutto sotto la stessa chiave cosi con il Destructuring(sotto) prenderò gli elementi parlanti es : project.links
-        games: {
-            data: [],
-            links: []
-        },
-        type: null,
+        games: {},
+        editor: null,
     }),
     methods: {
         fetchGames(endpoint = null) {
             // Loading alla chiamata a true(on)
             this.isLoading = true;
-            // Se l'endpoint non me lo dai sarà basico altrimenti se me lo passi andrà dove gli diremo noi ( link.url che sara la pagina succ o previous)
-            if (!endpoint) endpoint = `${apiBaseUrl}/editors/${this.$route.params.id}/games`;
+            if (!endpoint) endpoint = `${apiBaseUrl}/editor/${this.$route.params.id}/games`;
             axios.get(endpoint).then(res => {
-                // In res.data arrivano i dati della chiamata da axios 
-                const { type, games } = res.data;
-                this.games = games;
+                this.games = editor.games;
                 this.editor = editor;
 
             })

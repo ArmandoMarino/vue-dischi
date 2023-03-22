@@ -72,11 +72,11 @@ export default {
 
                     <!--TODO EDITOR -->
                     <!-- da router  il v-if qui è MOLTO importante -->
-                    <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                                                                                                                                                                                                                                            <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                                                                                                                                                                                                                                                {{ game.editor.label }}
-                                                                                                                                                                                                                                                                                                                                                            </span>
-                                                                                                                                                                                                                                                                                                                                                        </router-link> -->
+                    <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
+                        <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                            {{ game.editor.label }}
+                        </span>
+                    </router-link>
 
                     <!--* VIDEO TRAILER -->
                     <div class="d-flex">

@@ -26,7 +26,7 @@ const router = createRouter({
         { path: "/games/:id", name: "game-detail", component: GameDetailPage },
 
         //Rotta per il recupero dei projects appartenenti a un editor
-        { path: '/editors/:id/games', name: 'type-games', component: EditorGamesPage },
+        { path: '/editor/:id/games', name: 'editor-games', component: EditorGamesPage },
 
         // NotFoundPage
         { path: "/:pathMatch(.*)*", name: "not-found", component: NotFoundPage },
