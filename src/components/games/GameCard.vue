@@ -136,6 +136,14 @@ export default {
                 <p>No Genres Assigned Yet</p>
               </span>
             </div>
+            <div
+              class="d-flex justify-content-center price-badge"
+              :class="isDetail ? 'detail mt-5' : 'list mt-2'"
+            >
+              <div class="badge-start"></div>
+              <div class="badge-center">{{ game.sell_price }} €</div>
+              <div class="badge-end"></div>
+            </div>
             <!--* ROUETR TO SHOW -->
             <router-link
               v-if="!isDetail"
@@ -310,5 +318,32 @@ a {
   font-family: sans-serif;
   font-weight: bold;
   margin-top: 2rem;
+}
+
+.price-badge .list {
+  opacity: 0;
+}
+
+.card:hover .price-badge {
+  opacity: 1;
+  transition: opacity 1.4s;
+}
+.badge-start {
+  border-top: 16px solid green;
+  border-bottom: 15px solid green;
+  border-left: 15px solid transparent;
+}
+.badge-center {
+  background-color: green;
+  height: 30px;
+  width: 70px;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+.badge-end {
+  border-top: 16px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid green;
 }
 </style>
