@@ -40,6 +40,10 @@ export default {
             const abstract = this.game.description.slice(0, 70);
             return abstract + "...";
         },
+        changeVideoPath() {
+            const videoUrl = this.game.video_trailer.replace('watch', 'embed');
+            return videoUrl;
+        }
     },
 };
 </script>
@@ -50,27 +54,41 @@ export default {
     ">
         <!-- ROUTER -->
         <div class="p-3 card h-100" :class="isDetail ? 'my-card-detail' : 'my-card-list'"
-            :style="{ backgroundImage: 'url(' + game.image + ')' }">
+            :style="isDetail ? { backgroundImage: 'url(' + game.banner_image + ')' } : { backgroundImage: 'url(' + game.image + ')' }">
             <div class="h-100" :class="isDetail ? 'show' : 'overlay'">
                 <!--* IMAGE -->
                 <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
                 <div class="card-body h-100 d-flex flex-column justify-content-between">
+
+                    <!--* TITLE -->
                     <h5 class="card-title">{{ game.title }}</h5>
 
                     <!--TODO EDITOR -->
                     <!-- da router  il v-if qui è MOLTO importante -->
                     <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                    {{ game.editor.label }}
-                                </span>
-                            </router-link> -->
+                                                                                                                                                                                                                    <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                                                                                        {{ game.editor.label }}
+                                                                                                                                                                                                                    </span>
+                                                                                                                                                                                                                </router-link> -->
 
-                    <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
-                    <p class="card-text">
-                        {{ isDetail ? game.description : abstractDescription }}
-                    </p>
+                    <!--* VIDEO TRAILER -->
+                    <div class="d-flex">
+                        <iframe v-if="isDetail" width="560" height="315" class="col-6" :src="this.changeVideoPath"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
 
-                    <!-- GENRES -->
+
+
+                        <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
+                        <p class="card-text">
+                            {{ isDetail ? game.description : abstractDescription }}
+                        </p>
+
+                    </div>
+
+                    <!--* GENRES -->
                     <div class="genres">
                         <h2 class="mb-4">Genres:</h2>
                         <div class="d-flex fs-6 justify-content-center flex-wrap align-items-center">
@@ -82,7 +100,7 @@ export default {
                                 <p>No Genres Assigned Yet</p>
                             </span>
                         </div>
-                        <!-- ROUETR TO SHOW -->
+                        <!--* ROUETR TO SHOW -->
                         <router-link v-if="!isDetail" class="btn btn-primary btn-sm text-white"
                             :to="{ name: 'game-detail', params: { id: game.id } }">
                             Show detail
