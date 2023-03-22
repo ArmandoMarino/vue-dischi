@@ -14,13 +14,13 @@ export default {
       id="img-banner"
       class="text-white text-center mb-5 d-flex justify-content-center align-items-center"
     >
-      <h1 class="content"><em>Videogames Store</em></h1>
+      <h1 v-if="editor?.label" class="content">
+        <em>{{ editor.label }}</em>
+      </h1>
+      <h1 v-else class="content"><em>Videogames Store</em></h1>
     </div>
 
     <div class="container">
-      <h1 v-if="editor?.label" class="text-center text-white mb-5">
-        {{ editor.label }}
-      </h1>
       <div class="row justify-content-center g-3" v-if="games.length">
         <!-- CARD -->
         <game-card v-for="game in games" :key="game.id" :game="game">
