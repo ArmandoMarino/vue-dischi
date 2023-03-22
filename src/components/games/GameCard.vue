@@ -60,23 +60,23 @@ export default {
         isDetail ? 'col-11 mx-auto my-card-detail' : 'col-lg-3 col-md-6 col-sm-10'
     ">
         <!-- ROUTER -->
-        <div class="p-3 card h-100" :class="isDetail ? 'my-card-detail' : 'my-card-list'"
+        <div class="card h-100" :class="isDetail ? 'my-card-detail' : 'my-card-list p-3'"
             :style="isDetail ? { backgroundImage: 'url(' + game.banner_image + ')' } : { backgroundImage: 'url(' + game.image + ')' }">
             <div class="h-100" :class="isDetail ? 'show' : 'overlay'">
                 <!--* IMAGE -->
                 <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
-                <div class="card-body h-100 d-flex flex-column justify-content-between">
+                <div class="h-100 d-flex flex-column justify-content-between">
 
                     <!--* TITLE -->
-                    <h5 class="card-title">{{ game.title }}</h5>
+                    <p :class="isDetail ? 'h1' : 'card-title'">{{ game.title }}</p>
 
                     <!--TODO EDITOR -->
                     <!-- da router  il v-if qui è MOLTO importante -->
                     <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                                                                                                                                                                            <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                                                                                                                                                                                {{ game.editor.label }}
-                                                                                                                                                                                                                                                                                            </span>
-                                                                                                                                                                                                                                                                                        </router-link> -->
+                                                                                                                                                                                                                                                                                                                                                            <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                                                                                                                                                                                                                                {{ game.editor.label }}
+                                                                                                                                                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                                                                                                                                                        </router-link> -->
 
                     <!--* VIDEO TRAILER -->
                     <div class="d-flex">
@@ -88,8 +88,8 @@ export default {
 
 
 
-                        <!--*TODO metterla nello show ABSTRACT | DESCRIPTION -->
-                        <p class="card-text">
+                        <!--* DESCRIPTION -->
+                        <p>
                             {{ isDetail ? game.description : abstractDescription }}
                         </p>
 
@@ -154,7 +154,7 @@ export default {
     align-items: center;
     text-align: center;
     display: flex;
-    font-size: 1.5em;
+    font-size: 1rem;
     min-height: 300px;
     // font-family: cursive;
 }
@@ -185,6 +185,12 @@ export default {
 
 .card .overlay {
     color: rgba(255, 255, 255, 0);
+}
+
+.card .show {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    padding: 0;
 }
 
 .card:hover .overlay {
@@ -237,7 +243,7 @@ export default {
 }
 
 .my-card-detail {
-    min-height: 90vh;
+    min-height: 100%;
 }
 
 @keyframes spin {
