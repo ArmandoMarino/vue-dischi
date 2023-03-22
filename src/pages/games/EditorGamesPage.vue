@@ -26,9 +26,8 @@ export default {
             this.isLoading = true;
             if (!endpoint) endpoint = `${apiBaseUrl}/editor/${this.$route.params.id}/games`;
             axios.get(endpoint).then(res => {
-                this.games = editor.games;
-                this.editor = editor;
-
+                this.games = res.data.editor.games;
+                // this.editor = res.data.editor;
             })
                 // Controllo con catch se ci sono errori e nel caso l'alert sarà true (on)
                 .catch((err) => {
@@ -43,7 +42,6 @@ export default {
     },
     created() {
         this.fetchGames();
-        console.log()
     }
 };
 </script>
@@ -54,6 +52,6 @@ export default {
     <h3>{{ editor?.label }} VideoGames</h3>
     <app-loader v-if="isLoading"></app-loader>
     <!-- ALtrimenti v-else vai vedere la gamesList -->
-    <games-list v-else :games="games.data"></games-list>
+    <games-list v-else :games="games"></games-list>
     <!-- <app-pagination v-if="!isLoading" :links="games.links" @change-page="fetchGames"></app-pagination> -->
 </template>
