@@ -3,7 +3,7 @@ import GameCard from "./GameCard.vue";
 export default {
   name: "GamesList",
   components: { GameCard },
-  props: { games: Array },
+  props: { games: Array, editor: Object },
 };
 </script>
 
@@ -18,7 +18,10 @@ export default {
     </div>
 
     <div class="container">
-      <div class="row g-3" v-if="games.length">
+      <h1 v-if="editor?.label" class="text-center text-white mb-5">
+        {{ editor.label }}
+      </h1>
+      <div class="row justify-content-center g-3" v-if="games.length">
         <!-- CARD -->
         <game-card v-for="game in games" :key="game.id" :game="game">
           {{ game.title }}
