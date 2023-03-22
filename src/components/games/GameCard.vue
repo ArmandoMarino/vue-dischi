@@ -41,8 +41,15 @@ export default {
             return abstract + "...";
         },
         changeVideoPath() {
-            const videoUrl = this.game.video_trailer.replace('watch', 'embed');
-            return videoUrl;
+            let videoUrl = this.game.video_trailer;
+
+            let videoId = videoUrl.substring(
+                videoUrl.indexOf("=") + 1,
+                videoUrl.lastIndexOf("&")
+            );
+
+            let finalUrl = 'https://www.youtube.com/embed/' + videoId;
+            return finalUrl;
         }
     },
 };
@@ -66,10 +73,10 @@ export default {
                     <!--TODO EDITOR -->
                     <!-- da router  il v-if qui è MOLTO importante -->
                     <!-- <router-link v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                                                                                                                                                                                                                    <span class="badge" :style="{ backgroundColor: game.editor.color }">
-                                                                                                                                                                                                                        {{ game.editor.label }}
-                                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                                </router-link> -->
+                                                                                                                                                                                                                                                                                            <span class="badge" :style="{ backgroundColor: game.editor.color }">
+                                                                                                                                                                                                                                                                                                {{ game.editor.label }}
+                                                                                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                                                                                        </router-link> -->
 
                     <!--* VIDEO TRAILER -->
                     <div class="d-flex">
