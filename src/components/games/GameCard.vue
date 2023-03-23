@@ -81,7 +81,7 @@ export default {
                     <!-- da router  il v-if qui è MOLTO importante -->
                     <router-link class="editor" v-if="game.editor"
                         :to="{ name: 'editor-games', params: { id: game.editor.id } }">
-                        <span class="badge" :class="isDetail ? 'fs-6 p-2 mb-5' : 'mb-2'"
+                        <span class="badge text-dark bg-light" :class="isDetail ? 'fs-6 p-2 mb-5' : 'mb-2'"
                             :style="{ backgroundColor: game.editor.color }">
                             {{ game.editor.label }}
                         </span>
