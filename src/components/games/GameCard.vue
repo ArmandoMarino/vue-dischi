@@ -42,7 +42,6 @@ export default {
         },
         changeVideoPath() {
             let videoUrl = this.game.video_trailer;
-
             let videoId = videoUrl.substring(
                 videoUrl.indexOf("=") + 1,
                 videoUrl.lastIndexOf("&")
@@ -50,6 +49,13 @@ export default {
 
             let finalUrl = "https://www.youtube.com/embed/" + videoId;
             return finalUrl;
+        },
+        setVote() {
+            let baseVote = this.game.vote;
+            const transformedVote = (baseVote - 1) * 4 / 9 + 1;
+            const finalVote = Math.floor(transformedVote);
+            console.log(finalVote, 'qui');
+            return finalVote;
         },
     },
 };
@@ -96,8 +102,12 @@ export default {
                         </p>
                     </div>
 
-                    <!--* GENRES -->
-                    <div class="genres mt-5">
+
+
+
+                    <div class="genres mt-5 d-flex flex-column justify-content-between align-items-center">
+
+                        <!--* GENRES -->
                         <h2 v-if="isDetail" class="mb-4">Genres:</h2>
                         <h5 v-else class="mb-4">Genres:</h5>
                         <div class="d-flex fs-6 justify-content-center flex-wrap align-items-center">
@@ -109,13 +119,26 @@ export default {
                                 <p>No Genres Assigned Yet</p>
                             </span>
                         </div>
+
+                        <!--* VOTE -->
+                        <div class="d-flex justify-content-center align-items-center">
+                            <h2 v-if="isDetail">Vote :</h2>
+                            <span v-if="!isDetail" v-for="vote in setVote" class="badge m-1">
+                                <i class="fa-solid fa-2x fa-star text-warning"></i>
+                            </span>
+                            <h2 class="ps-2" v-if="isDetail"> {{ game.vote }}</h2>
+                        </div>
+
                         <!--* PRICE -->
-                        <div class="d-flex justify-content-center price-badge"
+                        <div class="d-flex justify-content-center price-badge "
                             :class="isDetail ? 'detail mt-5' : 'list mt-2'">
                             <div class="badge-start"></div>
                             <div class="badge-center">{{ game.sell_price }} €</div>
                             <div class="badge-end"></div>
                         </div>
+
+
+
                         <!--* ROUETR TO SHOW -->
                         <router-link v-if="!isDetail" class="btn btn-primary btn-sm text-white mb-2"
                             :to="{ name: 'game-detail', params: { id: game.id } }">
