@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const endpoint = 'http://127.0.0.1:8000/api/contact-mail';
-const emptyForm = { email: '', subject: '', message: '', subscription: false };
+const emptyForm = { sender: '', subject: '', message: '' };
 export default {
     name: 'ContactPage',
     data: () => ({
@@ -15,7 +15,7 @@ export default {
             this.isLoading = true;
             axios.post(endpoint, this.form)
                 .then(() => {
-                    this.form = { email: '', subject: '', message: '', subscription: false, };
+                    this.form = { sender: '', subject: '', message: '', };
                 })
                 .catch(err => { console.error(err) })
                 .then(() => { this.isLoading = false });
@@ -27,13 +27,13 @@ export default {
 <template>
     <AppLoader v-if="isLoading" />
     <div class="container p-2" v-else>
-        <h1 class="text-white">Subscribe NewsLetter</h1>
-        <!-- Prevent e intercetta il method sendform -->
-        <form @submit.prevent="sendForm" class="text-white py-5" novalidate>
-            <!-- EMAIL -->
+    <h1 class="text-white">Subscribe NewsLetter</h1>
+    <!-- Prevent e intercetta il method sendform -->
+    <form @submit.prevent="sendForm" class="text-white py-5" novalidate>
+        <!-- EMAIL -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email address<sup class="text-danger">*</sup></label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="name@example.com"
+                <input type="email" class="form-control" id="email" name="sender" aria-describedby="name@example.com"
                     v-model.trim="form.email" required>
                 <small class="text-muted form-text">Your email</small>
             </div>
@@ -51,12 +51,12 @@ export default {
                     required></textarea>
             </div>
 
-            <!-- ISCRIZIONE -->
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="subscription" value="1"
-                    v-model.trim="form.subscription">
-                <label class="form-check-label" for="subscription">Subscribe to NewsLetter</label>
-            </div>
+            <!--* ISCRIZIONE NEWSLETTER -->
+            <!-- <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="subscription" value="1"
+                                    v-model.trim="form.subscription">
+                                <label class="form-check-label" for="subscription">Subscribe to NewsLetter</label>
+                            </div> -->
 
             <!-- BUTTON -->
             <div>
