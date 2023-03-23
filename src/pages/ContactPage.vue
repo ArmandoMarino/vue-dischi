@@ -32,9 +32,9 @@ export default {
     <form @submit.prevent="sendForm" class="text-white py-5" novalidate>
         <!-- EMAIL -->
             <div class="mb-3">
-                <label for="email" class="form-label">Email address<sup class="text-danger">*</sup></label>
-                <input type="email" class="form-control" id="email" name="sender" aria-describedby="name@example.com"
-                    v-model.trim="form.email" required>
+                <label for="sender" class="form-label">Email address<sup class="text-danger">*</sup></label>
+                <input type="email" class="form-control" id="sender" name="sender" aria-describedby="name@example.com"
+                    v-model.trim="form.sender" required>
                 <small class="text-muted form-text">Your email</small>
             </div>
 
@@ -53,10 +53,10 @@ export default {
 
             <!--* ISCRIZIONE NEWSLETTER -->
             <!-- <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="subscription" value="1"
-                                    v-model.trim="form.subscription">
-                                <label class="form-check-label" for="subscription">Subscribe to NewsLetter</label>
-                            </div> -->
+                                        <input class="form-check-input" type="checkbox" id="subscription" value="1"
+                                            v-model.trim="form.subscription">
+                                        <label class="form-check-label" for="subscription">Subscribe to NewsLetter</label>
+                                    </div> -->
 
             <!-- BUTTON -->
             <div>
