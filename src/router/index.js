@@ -4,6 +4,8 @@ import { createRouter, createWebHistory } from "vue-router";
 // Importo le pagine che voglio usare
 
 import HomePage from "../pages/HomePage.vue";
+import ContactPage from '../pages/ContactPage.vue';
+
 import GameDetailPage from "../pages/games/GameDetailPage.vue";
 import NotFoundPage from "../pages/NotFoundPage.vue";
 import EditorGamesPage from '../pages/games/EditorGamesPage.vue';
@@ -19,8 +21,8 @@ const router = createRouter({
     routes: [
         { path: "/", name: "home", component: HomePage },
 
-        // Possibile rotta per editors a parte
-        // TODO { path: '/contact', name: 'contact', component: ContactPage },
+        // Contact page form
+        { path: '/contact', name: 'contact', component: ContactPage },
 
         //Rotta per lo show del game con ID
         { path: "/games/:id", name: "game-detail", component: GameDetailPage },

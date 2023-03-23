@@ -19,6 +19,9 @@ export default {
           <li class="nav-item">
             <RouterLink class="nav-link text-white" to="/">Home</RouterLink>
           </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'contact' }" class="nav-link text-white">Contact</router-link>
+          </li>
         </ul>
       </div>
     </div>

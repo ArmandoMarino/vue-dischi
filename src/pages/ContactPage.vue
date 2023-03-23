@@ -5,5 +5,5 @@ export default {
 </script>
 
 <template>
-    <h1>ContactPage is here!</h1>
+    <h1 class="text-white">ContactPage is here!</h1>
 </template>
