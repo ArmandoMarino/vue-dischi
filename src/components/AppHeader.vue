@@ -17,10 +17,10 @@ export default {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <RouterLink class="nav-link text-white" to="/">Home</RouterLink>
+            <RouterLink class="nav-link text-white me-3" to="/">Home</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'contact' }" class="nav-link text-white">Contact</router-link>
+            <router-link :to="{ name: 'contact' }" class="nav-link text-white">Contact us</router-link>
           </li>
         </ul>
       </div>
