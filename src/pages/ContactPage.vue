@@ -2,20 +2,22 @@
 import axios from 'axios';
 
 const endpoint = 'http://127.0.0.1:8000/api/contact-mail';
+const emptyForm = { email: '', subject: '', message: '', subscription: false };
 export default {
     name: 'ContactPage',
     data: () => ({
         // Prendo i campi con i v-model
-        form: { email: '', subject: '', message: '', subscription: false, },
+        form: emptyForm,
         isLoading: false,
     }),
     methods: {
         sendForm() {
             this.isLoading = true;
             axios.post(endpoint, this.form)
-                .then(res => {
+                .then(() => {
                     this.form = { email: '', subject: '', message: '', subscription: false, };
-                }).catch(err => { console.error(err) })
+                })
+                .catch(err => { console.error(err) })
                 .then(() => { this.isLoading = false });
         }
     }
@@ -27,7 +29,7 @@ export default {
     <div class="container p-2" v-else>
         <h1 class="text-white">Subscribe NewsLetter</h1>
         <!-- Prevent e intercetta il method sendform -->
-        <form @submit.prevent="sendForm" class="text-white py-5" action="" novalidate>
+        <form @submit.prevent="sendForm" class="text-white py-5" novalidate>
             <!-- EMAIL -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email address<sup class="text-danger">*</sup></label>
