@@ -2,7 +2,7 @@
 export default {
   name: "GameCard",
   props: {
-    game: Object,
+    game: Array,
     isDetail: Boolean,
   },
   computed: {

@@ -3,14 +3,17 @@ import GameCard from "./GameCard.vue";
 export default {
   name: "GamesList",
   components: { GameCard },
-  props: { games: Object, editor: Object },
+  props: { games: Array, editor: Object },
 };
 </script>
 
 <template>
   <section id="games-list">
     <!-- IMG BANNER -->
-    <div id="img-banner" class="text-white text-center mb-5 d-flex justify-content-center align-items-center">
+    <div
+      id="img-banner"
+      class="text-white text-center mb-5 d-flex justify-content-center align-items-center"
+    >
       <h1 v-if="editor?.label" class="content">
         <em>{{ editor.label }}</em>
       </h1>
@@ -18,9 +21,9 @@ export default {
     </div>
 
     <div class="container">
-      <div class="row justify-content-center g-3" v-if="games.data.length">
+      <div class="row justify-content-center g-3" v-if="games.length">
         <!-- CARD -->
-        <game-card v-for="game in games.data" :key="game.id" :game="game">
+        <game-card v-for="game in games" :key="game.id" :game="game">
           {{ game.title }}
         </game-card>
       </div>
