@@ -21,9 +21,9 @@ export default {
     </div>
 
     <div class="container">
-      <div class="row justify-content-center g-3" v-if="games.length">
+      <div class="row justify-content-center g-3" v-if="games.data.length">
         <!-- CARD -->
-        <game-card v-for="game in games" :key="game.id" :game="game">
+        <game-card v-for="game in games.data" :key="game.id" :game="game">
           {{ game.title }}
         </game-card>
       </div>
