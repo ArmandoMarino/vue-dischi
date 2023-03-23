@@ -54,7 +54,6 @@ export default {
             let baseVote = this.game.vote;
             const transformedVote = (baseVote - 1) * 4 / 9 + 1;
             const finalVote = Math.floor(transformedVote);
-            console.log(finalVote, 'qui');
             return finalVote;
         },
     },
