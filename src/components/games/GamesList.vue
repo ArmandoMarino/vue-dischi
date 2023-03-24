@@ -35,7 +35,7 @@ export default {
 <style scoped lang="scss">
 #img-banner {
   height: 200px;
-  width: 100vw;
+  width: 100%;
   margin-top: 70px;
   background-image: url(../../assets/img/banner-2.webp);
   background-repeat: no-repeat;
