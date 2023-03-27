@@ -2,7 +2,7 @@
 export default {
   name: "GameCard",
   props: {
-    game: Array,
+    game: Object,
     isDetail: Boolean,
   },
   computed: {
@@ -61,22 +61,15 @@ export default {
 </script>
 
 <template>
-  <div
-    class="my-4 text-center"
-    :class="
-      isDetail ? 'col-11 mx-auto my-card-detail' : 'col-lg-3 col-md-6 col-sm-10'
-    "
-  >
+  <div class="my-4 text-center" :class="
+    isDetail ? 'col-11 mx-auto my-card-detail' : 'col-lg-3 col-md-6 col-sm-10'
+  ">
     <!-- ROUTER -->
-    <div
-      class="card h-100"
-      :class="isDetail ? 'my-card-detail' : 'my-card-list p-3'"
-      :style="
-        isDetail
-          ? { backgroundImage: 'url(' + game.banner_image + ')' }
-          : { backgroundImage: 'url(' + game.image + ')' }
-      "
-    >
+    <div class="card h-100" :class="isDetail ? 'my-card-detail' : 'my-card-list p-3'" :style="
+      isDetail
+        ? { backgroundImage: 'url(' + game.banner_image + ')' }
+        : { backgroundImage: 'url(' + game.image + ')' }
+    ">
       <div class="h-100" :class="isDetail ? 'show' : 'overlay'">
         <!--* IMAGE -->
         <!-- <img v-if="game.image" :src="game.image" class="card-img-top img-fluid" :alt="game.title"> -->
@@ -86,33 +79,19 @@ export default {
 
           <!--TODO EDITOR -->
           <!-- da router  il v-if qui è MOLTO importante -->
-          <router-link
-            class="editor"
-            v-if="game.editor"
-            :to="{ name: 'editor-games', params: { id: game.editor.id } }"
-          >
-            <span
-              class="badge text-white bg-primary"
-              :class="isDetail ? 'fs-6 p-2 mb-5' : 'mb-2'"
-              :style="{ backgroundColor: game.editor.color }"
-            >
+        <router-link class="editor" v-if="game.editor" :to="{ name: 'editor-games', params: { id: game.editor.id } }">
+          <span class="badge text-white bg-primary" :class="isDetail ? 'fs-6 p-2 mb-5' : 'mb-2'"
+            :style="{ backgroundColor: game.editor.color }">
               {{ game.editor.label }}
             </span>
-          </router-link>
+        </router-link>
 
           <!--* VIDEO TRAILER -->
           <div class="d-flex">
-            <iframe
-              v-if="isDetail"
-              width="560"
-              height="315"
-              class="col-4 mx-5"
-              :src="this.changeVideoPath"
-              title="YouTube video player"
-              frameborder="0"
+            <iframe v-if="isDetail" width="560" height="315" class="col-4 mx-5" :src="this.changeVideoPath"
+              title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            >
+              allowfullscreen>
             </iframe>
 
             <!--* DESCRIPTION -->
@@ -121,22 +100,13 @@ export default {
             </p>
           </div>
 
-          <div
-            class="genres mt-5 d-flex flex-column justify-content-between align-items-center"
-          >
+          <div class="genres mt-5 d-flex flex-column justify-content-between align-items-center">
             <!--* GENRES -->
             <h2 v-if="isDetail" class="mb-4">Genres:</h2>
             <h5 v-else class="mb-4">Genres:</h5>
-            <div
-              class="d-flex fs-6 justify-content-center flex-wrap align-items-center"
-            >
-              <span
-                v-if="game.genres.length"
-                v-for="genre in game.genres"
-                :style="{ backgroundColor: genre.color }"
-                :key="genre.id"
-                class="badge m-1"
-              >
+            <div class="d-flex fs-6 justify-content-center flex-wrap align-items-center">
+              <span v-if="game.genres.length" v-for="genre in game.genres" :style="{ backgroundColor: genre.color }"
+                :key="genre.id" class="badge m-1">
                 {{ genre.label }}
               </span>
               <span v-else>
@@ -154,21 +124,15 @@ export default {
             </div>
 
             <!--* PRICE -->
-            <div
-              class="d-flex justify-content-center price-badge"
-              :class="isDetail ? 'detail mt-5' : 'list mt-2'"
-            >
+            <div class="d-flex justify-content-center price-badge" :class="isDetail ? 'detail mt-5' : 'list mt-2'">
               <div class="badge-start"></div>
               <div class="badge-center">{{ game.sell_price }} €</div>
               <div class="badge-end"></div>
             </div>
 
             <!--* ROUETR TO SHOW -->
-            <router-link
-              v-if="!isDetail"
-              class="btn btn-primary btn-sm text-white mb-2"
-              :to="{ name: 'game-detail', params: { id: game.id } }"
-            >
+            <router-link v-if="!isDetail" class="btn btn-primary btn-sm text-white mb-2"
+              :to="{ name: 'game-detail', params: { id: game.id } }">
               Show detail
             </router-link>
           </div>
@@ -177,13 +141,13 @@ export default {
             Published in: {{ game.published_year }}
           </h5>
           <!-- <div
-            v-if="isDetail"
-            class="d-flex justify-content-between align-items-center mx-5"
-          > -->
+              v-if="isDetail"
+              class="d-flex justify-content-between align-items-center mx-5"
+            > -->
           <!-- UPDATED & PUBLISHED -->
           <!-- <p>Pubblished at : {{ gameDateCreated }}</p>
-            <p>Updated at : {{ gameDateUpdated }}</p>
-          </div> -->
+              <p>Updated at : {{ gameDateUpdated }}</p>
+            </div> -->
         </div>
       </div>
     </div>
@@ -291,12 +255,10 @@ export default {
   width: 104%;
   height: 102%;
   border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate),
-    #5ddcff,
-    #3c67e3 43%,
-    #4e00c2
-  );
+  background-image: linear-gradient(var(--rotate),
+      #5ddcff,
+      #3c67e3 43%,
+      #4e00c2);
   position: absolute;
   z-index: -1;
   top: -1%;

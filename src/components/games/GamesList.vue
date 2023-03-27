@@ -10,10 +10,7 @@ export default {
 <template>
   <section id="games-list">
     <!-- IMG BANNER -->
-    <div
-      id="img-banner"
-      class="text-white text-center mb-5 d-flex justify-content-center align-items-center"
-    >
+    <div id="img-banner" class="text-white text-center mb-5 d-flex justify-content-center align-items-center">
       <h1 v-if="editor?.label" class="content">
         <em>{{ editor.label }}</em>
       </h1>
